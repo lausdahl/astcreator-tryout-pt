@@ -1,0 +1,59 @@
+Packages
+base org.overture.ast.node;
+analysis org.overture.ast.analysis;
+  
+Tokens
+/* This section declared tokens as internal types or external classes
+ * internal definitions:
+ *  plus='+';
+ *  
+ * external
+ *  location = 'java:org.overture.ast.lex.LexLocation';
+ */
+ 
+
+  
+  //Java
+  java_Boolean = 'java:java.lang.Boolean';
+  java_Integer = 'java:java.lang.Integer';
+  java_String = 'java:java.lang.String';
+  java_Long = 'java:java.lang.Long';
+
+  
+Abstract Syntax Tree
+/* This section declares the AST by giving root nodes and their possible sub classes
+ *
+ * exp {-> package='org.overture.ast.expressions'}
+ *      = {subclass1} [field_name]:field_type_must_either_be_root_or_token ...
+ *      ;
+ *
+ */
+
+
+
+
+item {-> package='org.asttryout'
+	| [name]:java_String 
+	| [operator]:operator} 
+	= #Action
+	| #Task
+	| {annonym}
+	;
+	
+#Action {-> package='org.asttryout.actions'  }
+		=  {user}
+		| {interaction}
+		| {system}
+		| {output}
+		| {input} 
+;
+
+#Task {-> package='org.asttryout.tasks' } 
+	= {abstract}
+;
+
+operator {-> package='org.asttryout.operators'} 	
+		= {enableSeq} [items]:item*
+		| {orderIndependence} [items]:item*
+		| {suspendedResume} [items]:item*
+;
