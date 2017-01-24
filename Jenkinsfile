@@ -1,7 +1,8 @@
 node{
     // Mark the code checkout 'stage'....
     stage 'Checkout'
-git url: 'git@github.com:lausdahl/astcreator-tryout-pt.git'
+//git url: 'git@github.com:lausdahl/astcreator-tryout-pt.git'
+checkout scm
     // Get some code from a GitHub repository
  //   git url: 'https://github.com/alvarolobato/maven_test.git'
 
