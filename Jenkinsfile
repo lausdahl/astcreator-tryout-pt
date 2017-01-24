@@ -19,17 +19,6 @@ withMaven(mavenLocalRepo: '.repository', mavenSettingsFilePath: '/var/lib/jenkin
         sh "mvn clean"
     }
 
-stage 'package'
-
-//  withMaven(
-  //          maven: 'M3',
-    //        mavenSettingsConfig: 'maven-settings-for-gameoflife',
-      //      mavenLocalRepo: '.repository') {
-withMaven(mavenLocalRepo: '.repository', mavenSettingsFilePath: '/var/lib/jenkins/internal-resources/settings.xml') {
-
-        // Run the maven build
-        sh "mvn package"
-    }
 
 
 }
